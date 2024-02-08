@@ -1,0 +1,18 @@
+﻿@{
+
+}
+@model HospitalWEB.ViewModels.HospitalizationViewModel;
+
+<form asp-controller="Home" asp-action="Hospitalization">
+    <label>Номер телефона</label>
+    <input asp-for="PhoneNumber" placeholder="Number" type="text" />
+    <label>Departament</label>
+    <input asp-for="Departament" placeholder="Departament" type="text" />
+    <label>Condition</label>
+    <input asp-for="Condition" placeholder="Condition" type="text" />
+    <label>Target</label>
+    <input asp-for="Target" placeholder="Target" type="text" />
+    <label>Diagnosis</label>
+    <input asp-for="Diagnosis" placeholder="Diagnosis" type="text" />
+    <input type="submit" value="Отправить на госпитализацию" />
+</form>

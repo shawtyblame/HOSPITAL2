@@ -1,0 +1,40 @@
+﻿@{
+
+}
+@model HospitalWEB.ViewModels.RegistrationViewModel;
+
+<form asp-controller="Home" asp-action="Registration">
+    <label>Login</label>
+    <input asp-for="Login" placeholder="Login" type="text" /><br />
+    <label>Password</label>
+    <input asp-for="Password" type="text" placeholder="Password" />
+    <label>Name</label>
+    <input asp-for="Name" type="text" placeholder="Name" />
+    <label>Lastname</label>
+    <input asp-for="Lastname" type="text" placeholder="Lastname" />
+    <label>Surname</label>
+    <input asp-for="Surname" type="text" placeholder="Surname" />
+    <label>Email</label>
+    <input asp-for="Email" type="text" placeholder="Email" />
+    <label>PhoneNumber</label>
+    <input asp-for="PhoneNumber" type="text" placeholder="PhoneNumber" />
+    <label>Gender</label>
+    <input asp-for="Gender" type="text" placeholder="Gender" />
+    <label>DateOfBirth</label>
+    <input asp-for="DateOfBirth" type="datetime" placeholder="DateOfBirth" />
+    <label>PassportSeries</label>
+    <input asp-for="PassportSeries" type="number" placeholder="PassportSeries" />
+    <label>PassportNumber</label>
+    <input asp-for="PassportNumber" type="number" placeholder="PassportNumber" />
+    <label>Address</label>
+    <input asp-for="Address" type="text" placeholder="Address" />
+    <label>WorkPlace</label>
+    <input asp-for="WorkPlace" type="text" placeholder="WorkPlace" />
+    <label>InsurancePolicyNumber</label>
+    <input asp-for="InsurancePolicyNumber" type="number" placeholder="InsurancePolicyNumber" />
+    <label>InsurancePolicyEndDate</label>
+    <input asp-for="InsurancePolicyEndDate" type="datetime" placeholder="InsurancePolicyEndDate" />
+    <input type="submit" value="Регистрация" />
+</form>
+<div>@ViewBag.OK</div>
+<div>@ViewBag.Bad</div>
