@@ -4,11 +4,6 @@ using DAL.Entities;
 using DAL.Interfaces;
 using IronBarCode;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
@@ -110,6 +105,34 @@ namespace DAL.Repositories
                 && u.RoleId != 4);
             if (user != null) return user;
             else return null;
+        }
+
+        public async Task<UserDTO> GetUserInfo(string phone)
+        {
+            var user = await   _context.UserMainInfos.FirstOrDefaultAsync(u => u.PhoneNumber.ToLower()== phone.ToLower());
+            var userInfo = await _context.UserAdditionals.FirstOrDefaultAsync(u => u.UserMainInfoId == user.Id);
+            if (user != null)
+            {
+                var userModel = new UserDTO
+                {
+                    Name = user.Name,
+                    Lastname = user.Lastname,
+                    Surname = user.Surname,
+                    Email = user.Email,
+                    DateOfBirth = userInfo.DateOfBirth,
+                    PassportNumber = user.PassportNumber,
+                    PassportSeries = user.PassportSeries,
+                    Address = userInfo.Address,
+                    WorkPlace = userInfo.WorkPlace,
+                    InsurancePolicyEndDate = userInfo.InsurancePolicyDateEnd,
+                    InsurancePolicyNumber = userInfo.InsurancePolicyNumber,
+                };
+                return userModel;
+            }
+            else
+            {
+                throw new ArgumentException("Patient not found");
+            }
         }
     }
 }

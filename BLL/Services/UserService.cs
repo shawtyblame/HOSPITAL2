@@ -5,6 +5,7 @@ using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +21,11 @@ namespace BLL.Services
         public async Task<UserDTO> GetInfoMyMedicalCardNumberAsync(long number)
         {
             return await _userRepository.GetInfoMyMedicalCardNumberAsync(number);
+        }
+
+        public async Task<UserDTO> GetUserInfo(string phone)
+        {
+            return await _userRepository.GetUserInfo(phone);
         }
 
         public async Task<bool> RegistrationUserAsync(UserDTO userDTO)

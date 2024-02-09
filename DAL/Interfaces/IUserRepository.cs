@@ -13,5 +13,6 @@ namespace DAL.Interfaces
         public Task<bool> RegistrationUserAsync(UserDTO userDTO);
         public Task<UserDTO> GetInfoMyMedicalCardNumberAsync(long number);
         public Task<UserCredential> ValidateUserAsync(ValidateDTO validateDTO);
+        public Task<UserDTO> GetUserInfo(string phone);
     }
 }

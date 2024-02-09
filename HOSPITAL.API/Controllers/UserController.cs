@@ -32,5 +32,11 @@ namespace HOSPITAL.API.Controllers
             if (validate != null) return Ok(validate);
             else return BadRequest();
         }
+        [HttpGet]
+        [Route("/findinfobyphone")]
+        public async Task<IActionResult> FindUserBuPhone(string phone)
+        {
+            return Ok(await _userService.GetUserInfo(phone));
+        }
     }
 }
